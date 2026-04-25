@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abmation Tools — Professional 2D Animation Tools for Adobe Animate CC</title>
+    <meta name="description" content="200+ professional JSFL scripts and tools for Adobe Animate CC. Streamline your rig, automate your timeline, and animate faster.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a1a;
+            --bg-card: #141432;
+            --bg-card-hover: #1a1a3e;
+            --text-primary: #e8e8f0;
+            --text-secondary: #8888aa;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --gradient-1: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            --gradient-2: linear-gradient(135deg, #6c5ce7, #00d68f);
+            --success: #00d68f;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; }
+
+        /* Navbar */
+        .navbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: rgba(10,10,26,0.95); border-bottom: 1px solid #2a2a5a; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
+        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-logo img { width: 40px; height: 40px; object-fit: contain; }
+        .nav-logo span { font-size: 20px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-light); }
+        .nav-cta { background: var(--gradient-1); color: #fff; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: transform 0.3s, box-shadow 0.3s; }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(108,92,231,0.4); }
+
+        /* Hero */
+        .hero { text-align: center; padding: 100px 20px 60px; background: radial-gradient(ellipse at center top, rgba(108,92,231,0.15), transparent 60%); }
+        .hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+        .hero h1 .highlight { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; line-height: 1.6; }
+        .hero-cta { display: inline-block; background: var(--gradient-1); color: #fff; padding: 16px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; transition: transform 0.3s, box-shadow 0.3s; }
+        .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(108,92,231,0.4); }
+
+        /* Features */
+        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 32px; font-weight: 800; margin-bottom: 16px; }
+        .section-sub { text-align: center; color: var(--text-secondary); font-size: 16px; margin-bottom: 48px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .feature-card { background: var(--bg-card); border: 1px solid #2a2a5a; border-radius: 16px; padding: 32px; transition: transform 0.3s, border-color 0.3s; }
+        .feature-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+        .feature-icon { font-size: 32px; margin-bottom: 16px; }
+        .feature-card h3 { font-size: 18px; margin-bottom: 8px; }
+        .feature-card p { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
+
+        /* About */
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .about-text h2 { font-size: 28px; font-weight: 800; margin-bottom: 16px; }
+        .about-text p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+        .about-stats { display: flex; gap: 32px; margin-top: 24px; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 32px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+        /* How it works */
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+        .step { text-align: center; padding: 32px; background: var(--bg-card); border-radius: 16px; border: 1px solid #2a2a5a; }
+        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: var(--gradient-1); border-radius: 50%; font-size: 20px; font-weight: 800; margin-bottom: 16px; }
+        .step h3 { margin-bottom: 8px; }
+        .step p { color: var(--text-secondary); font-size: 13px; line-height: 1.6; }
+
+        /* Footer */
+        .footer { background: #050510; border-top: 1px solid #2a2a5a; padding: 40px 20px; text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--accent-light); }
+        .footer-copy { color: #5a5a7a; font-size: 12px; }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 12px 16px; flex-wrap: wrap; gap: 12px; }
+            .nav-links { gap: 16px; }
+            .hero h1 { font-size: 32px; }
+            .about-content { grid-template-columns: 1fr; }
+            .about-stats { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="abmation_logo.png" alt="Abmation Tools">
+            <span>Abmation Tools</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="purchase.html" class="nav-cta">Buy Now — ₹1,999</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>200+ Professional Tools for<br><span class="highlight">Adobe Animate CC</span></h1>
+        <p>Streamline your rig, automate your timeline, and animate faster. Built by animators, for animators.</p>
+        <a href="purchase.html" class="hero-cta">🛒 Get Abmation Tools — ₹1,999/year</a>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+        <h2 class="section-title">Why Abmation Tools?</h2>
+        <p class="section-sub">Everything you need to supercharge your 2D animation workflow</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>200+ Pro Scripts</h3>
+                <p>Massive collection of JSFL scripts covering rigging, timeline, symbols, layers, and more.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>CEP Panel</h3>
+                <p>Beautiful one-click panel integrated directly into Adobe Animate CC for instant access.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⌨️</div>
+                <h3>Custom Shortcuts</h3>
+                <p>Assign keyboard shortcuts to any tool for lightning-fast workflow.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Offline Support</h3>
+                <p>Works offline with grace period. No constant internet required.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🖥️</div>
+                <h3>Animate CC 2022–2024</h3>
+                <p>Compatible with Adobe Animate CC 2022, 2023, and 2024 versions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📧</div>
+                <h3>Email Support</h3>
+                <p>Get help whenever you need it. Dedicated support within 24-48 hours.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about" style="background: rgba(108,92,231,0.05); border-radius: 24px;">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Built by Animators,<br>For Animators</h2>
+                <p>Abmation Tools is a specialized toolkit designed to handle the heavy lifting of 2D animation production in Adobe Animate CC. We automate the repetitive tasks so you can focus on what matters — creating amazing art.</p>
+                <p>From rigging automation to timeline management, symbol manipulation to layer organization — every tool is crafted with professional animators in mind.</p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Pro Tools</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">1-Click</div>
+                        <div class="stat-label">Installation</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Offline Access</div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;">
+                <img src="abmation_logo.png" alt="Abmation Tools" style="width:200px;height:auto;filter:drop-shadow(0 8px 24px rgba(108,92,231,0.4));">
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section" id="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Get started in minutes with our simple setup process</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Purchase</h3>
+                <p>Buy your 1-year license securely via Razorpay. Receive your license key instantly via email.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Download & Install</h3>
+                <p>Download the Abmation Tools installer and run it. All scripts are auto-deployed to your system.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Activate</h3>
+                <p>Open Animate CC, go to Extensions, enter your license key. Machine-bound activation ensures security.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Animate!</h3>
+                <p>Access 200+ tools from the CEP panel or Commands menu. Keyboard shortcuts supported.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="text-align:center;padding:80px 20px;background:radial-gradient(ellipse at center, rgba(108,92,231,0.15), transparent 60%);">
+        <h2 style="font-size:32px;font-weight:800;margin-bottom:16px;">Ready to Animate Faster?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:32px;">Join professional animators using Abmation Tools</p>
+        <a href="purchase.html" class="hero-cta">🛒 Get Started — ₹1,999/year</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="purchase.html">Purchase</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms.html">Terms & Conditions</a>
+            <a href="refund-policy.html">Refund Policy</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <p class="footer-copy">© 2025 Abmation Tools. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
