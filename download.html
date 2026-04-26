@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download — Abmation Tools for Adobe Animate CC</title>
+    <meta name="description" content="Download Abmation Tools installer and get your license key. 200+ professional automation scripts for Adobe Animate CC.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a1a;
+            --bg-card: #141432;
+            --text-primary: #e8e8f0;
+            --text-secondary: #8888aa;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --gradient-1: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            --gradient-2: linear-gradient(135deg, #6c5ce7, #00d68f);
+            --success: #00d68f;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; }
+
+        /* Navbar */
+        .navbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: rgba(10,10,26,0.95); border-bottom: 1px solid #2a2a5a; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
+        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-logo img { width: 40px; height: 40px; object-fit: contain; }
+        .nav-logo span { font-size: 20px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-light); }
+        .nav-cta { background: var(--gradient-1); color: #fff; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: transform 0.3s, box-shadow 0.3s; }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(108,92,231,0.4); }
+
+        /* Hero */
+        .hero { text-align: center; padding: 80px 20px 40px; background: radial-gradient(ellipse at center top, rgba(108,92,231,0.15), transparent 60%); }
+        .hero h1 { font-size: 44px; font-weight: 800; margin-bottom: 16px; }
+        .hero h1 .highlight { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 17px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+        /* Steps Section */
+        .steps { max-width: 900px; margin: 60px auto; padding: 0 20px; }
+        .steps-title { text-align: center; font-size: 28px; font-weight: 700; margin-bottom: 48px; }
+        .step-cards { display: flex; flex-direction: column; gap: 32px; }
+
+        .step-card { display: flex; align-items: flex-start; gap: 24px; background: var(--bg-card); border: 1px solid #2a2a5a; border-radius: 16px; padding: 32px; transition: transform 0.3s, border-color 0.3s; }
+        .step-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+        .step-number { flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; background: var(--gradient-1); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; color: #fff; }
+        .step-content h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+        .step-content p { color: var(--text-secondary); font-size: 15px; line-height: 1.6; margin-bottom: 16px; }
+
+        /* Download Button */
+        .btn-download { display: inline-flex; align-items: center; gap: 10px; background: var(--gradient-2); color: #fff; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.3s, box-shadow 0.3s; }
+        .btn-download:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,214,143,0.3); }
+        .btn-download svg { width: 20px; height: 20px; }
+
+        .btn-buy { display: inline-flex; align-items: center; gap: 10px; background: var(--gradient-1); color: #fff; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.3s, box-shadow 0.3s; }
+        .btn-buy:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(108,92,231,0.4); }
+
+        /* Requirements */
+        .requirements { max-width: 900px; margin: 60px auto; padding: 0 20px; }
+        .req-title { font-size: 24px; font-weight: 700; margin-bottom: 24px; text-align: center; }
+        .req-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .req-item { background: var(--bg-card); border: 1px solid #2a2a5a; border-radius: 12px; padding: 24px; text-align: center; }
+        .req-item .icon { font-size: 32px; margin-bottom: 12px; }
+        .req-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+        .req-item p { color: var(--text-secondary); font-size: 13px; }
+
+        /* FAQ */
+        .faq { max-width: 700px; margin: 60px auto 40px; padding: 0 20px; }
+        .faq-title { font-size: 24px; font-weight: 700; margin-bottom: 24px; text-align: center; }
+        .faq-item { background: var(--bg-card); border: 1px solid #2a2a5a; border-radius: 12px; padding: 20px 24px; margin-bottom: 12px; }
+        .faq-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--accent-light); }
+        .faq-item p { color: var(--text-secondary); font-size: 14px; line-height: 1.5; }
+
+        /* Footer */
+        .footer { text-align: center; padding: 40px 20px; border-top: 1px solid #2a2a5a; color: var(--text-secondary); font-size: 13px; margin-top: 40px; }
+        .footer a { color: var(--accent-light); text-decoration: none; }
+
+        /* Version Badge */
+        .version-badge { display: inline-block; background: rgba(108,92,231,0.15); border: 1px solid var(--accent); color: var(--accent-light); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 12px; }
+        .file-size { color: var(--text-secondary); font-size: 13px; margin-top: 8px; }
+
+        @media (max-width: 600px) {
+            .navbar { padding: 12px 16px; flex-wrap: wrap; gap: 10px; }
+            .nav-links { gap: 14px; }
+            .hero h1 { font-size: 28px; }
+            .step-card { flex-direction: column; align-items: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="abmation_logo.png" alt="Abmation Tools">
+            <span>Abmation Tools</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="download.html" class="active">Download</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="purchase.html" class="nav-cta">Buy Now — ₹1,999</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Get Started with <span class="highlight">Abmation Tools</span></h1>
+        <p>Download the installer, purchase your license key, and unlock 200+ professional animation tools for Adobe Animate CC.</p>
+    </section>
+
+    <!-- Steps -->
+    <section class="steps">
+        <h2 class="steps-title">Setup in 3 Easy Steps</h2>
+        <div class="step-cards">
+
+            <!-- Step 1: Download -->
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>📥 Download the Installer</h3>
+                    <p>Download the latest version of Abmation Tools installer. Works with Adobe Animate CC 2022 and later.</p>
+                    <span class="version-badge">v2.0 — Latest</span><br>
+                    <a href="https://github.com/AbhishekBasiwal9/AbmationTools/releases/latest/download/AbmationTools_Setup.exe" class="btn-download" id="downloadBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download Installer (.exe)
+                    </a>
+                    <p class="file-size">Windows 10/11 • ~15 MB</p>
+                </div>
+            </div>
+
+            <!-- Step 2: Install -->
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>⚡ Install & Open</h3>
+                    <p>Run the installer → Enter your purchased license key → Click Install. The installer will automatically set up all tools. After installation, open Adobe Animate CC and go to <strong>Window → Extensions → Abmation Tools</strong> to open the panel.</p>
+                </div>
+            </div>
+
+            <!-- Step 3: License -->
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>🔑 Purchase & Activate License</h3>
+                    <p>Buy your license key and enter it in the Abmation Tools panel to unlock all 200+ tools. One license works on one machine — lifetime access included.</p>
+                    <a href="purchase.html" class="btn-buy">
+                        🛒 Buy License Key — ₹1,999
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- System Requirements -->
+    <section class="requirements">
+        <h2 class="req-title">System Requirements</h2>
+        <div class="req-grid">
+            <div class="req-item">
+                <div class="icon">💻</div>
+                <h4>Operating System</h4>
+                <p>Windows 10 / 11</p>
+            </div>
+            <div class="req-item">
+                <div class="icon">🎨</div>
+                <h4>Adobe Animate CC</h4>
+                <p>Version 2022 or later</p>
+            </div>
+            <div class="req-item">
+                <div class="icon">💾</div>
+                <h4>Disk Space</h4>
+                <p>50 MB free space</p>
+            </div>
+            <div class="req-item">
+                <div class="icon">🌐</div>
+                <h4>Internet</h4>
+                <p>Required for license activation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h4>Is the download free?</h4>
+            <p>Yes, the installer is free to download. You need a license key (₹1,999) to activate and use all tools.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How do I activate my license?</h4>
+            <p>Run the installer → Enter your purchased license key → Click Install. Your license will be activated automatically during installation.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Can I use it on multiple computers?</h4>
+            <p>Each license key is valid for one computer. Contact us for bulk/studio licensing options.</p>
+        </div>
+        <div class="faq-item">
+            <h4>What if I change my computer?</h4>
+            <p>Contact our support team and we'll help transfer your license to the new machine.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Does it work with Animate CC 2022 and 2024?</h4>
+            <p>Yes! Abmation Tools works with Adobe Animate CC 2022, 2023, and 2024.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Abmation Tools. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="refund-policy.html">Refund Policy</a> | <a href="contact.html">Contact</a></p>
+    </footer>
+
+</body>
+</html>
