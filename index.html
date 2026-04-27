@@ -23,7 +23,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; overflow-x: hidden; }
 
-        /* ═══ PARTICLE CANVAS ═══ */
+        /* Particle Canvas - background only */
         #particles-canvas {
             position: fixed;
             top: 0;
@@ -34,75 +34,37 @@
             pointer-events: none;
         }
 
-        /* ═══ SCROLL REVEAL ═══ */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Navbar */
-        .navbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: rgba(10,10,26,0.85); border-bottom: 1px solid #2a2a5a; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(16px); }
+        .navbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: rgba(10,10,26,0.95); border-bottom: 1px solid #2a2a5a; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
         .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .nav-logo img { width: 40px; height: 40px; object-fit: contain; }
         .nav-logo span { font-size: 20px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .nav-links { display: flex; gap: 28px; list-style: none; }
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent-light); }
-        .nav-cta { background: var(--gradient-1); color: #fff; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; }
+        .nav-cta { background: var(--gradient-1); color: #fff; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: transform 0.3s, box-shadow 0.3s; }
         .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(108,92,231,0.4); }
-        /* CTA shimmer */
-        .nav-cta::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%); animation: ctaShimmer 3s ease-in-out infinite; }
-        @keyframes ctaShimmer { 0%,100% { transform: translateX(-100%); } 50% { transform: translateX(100%); } }
 
         /* Hero */
-        .hero { position: relative; z-index: 1; text-align: center; padding: 100px 20px 60px; background: radial-gradient(ellipse at center top, rgba(108,92,231,0.2), transparent 60%); }
+        .hero { position: relative; z-index: 1; text-align: center; padding: 100px 20px 60px; background: radial-gradient(ellipse at center top, rgba(108,92,231,0.15), transparent 60%); }
         .hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, #a29bfe, #c4b5fd, #a29bfe, #8b7cf7, #a29bfe);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: textShimmer 6s ease-in-out infinite;
-        }
-        @keyframes textShimmer {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
-        }
+        .hero h1 .highlight { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; line-height: 1.6; }
-        .hero-cta { display: inline-block; background: var(--gradient-1); color: #fff; padding: 16px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; transition: transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; }
-        .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(108,92,231,0.5); }
-        .hero-cta::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.12) 50%, transparent 70%); animation: ctaShimmer 3s ease-in-out infinite; }
+        .hero-cta { display: inline-block; background: var(--gradient-1); color: #fff; padding: 16px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; transition: transform 0.3s, box-shadow 0.3s; }
+        .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(108,92,231,0.4); }
 
         /* Features */
         .section { position: relative; z-index: 1; padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 32px; font-weight: 800; margin-bottom: 16px; }
         .section-sub { text-align: center; color: var(--text-secondary); font-size: 16px; margin-bottom: 48px; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-        .feature-card {
-            background: rgba(20,20,50,0.6);
-            backdrop-filter: blur(8px);
-            border: 1px solid #2a2a5a;
-            border-radius: 16px;
-            padding: 32px;
-            transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
-        }
-        .feature-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent);
-            box-shadow: 0 8px 32px rgba(108,92,231,0.2);
-        }
+        .feature-card { background: var(--bg-card); border: 1px solid #2a2a5a; border-radius: 16px; padding: 32px; transition: transform 0.3s, border-color 0.3s; }
+        .feature-card:hover { transform: translateY(-4px); border-color: var(--accent); }
         .feature-icon { font-size: 32px; margin-bottom: 16px; }
         .feature-card h3 { font-size: 18px; margin-bottom: 8px; }
         .feature-card p { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
 
         /* About */
-        .about-section { position: relative; z-index: 1; background: rgba(108,92,231,0.05); border-radius: 24px; }
         .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
         .about-text h2 { font-size: 28px; font-weight: 800; margin-bottom: 16px; }
         .about-text p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
@@ -110,31 +72,13 @@
         .stat { text-align: center; }
         .stat-number { font-size: 32px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
-        /* Logo - static (no float) */
 
         /* How it works */
         .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
-        .step {
-            text-align: center;
-            padding: 32px;
-            background: rgba(20,20,50,0.6);
-            backdrop-filter: blur(8px);
-            border-radius: 16px;
-            border: 1px solid #2a2a5a;
-            transition: transform 0.4s, border-color 0.4s;
-        }
-        .step:hover { transform: translateY(-4px); border-color: var(--accent); }
-        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: var(--gradient-1); border-radius: 50%; font-size: 20px; font-weight: 800; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(108,92,231,0.4); }
+        .step { text-align: center; padding: 32px; background: var(--bg-card); border-radius: 16px; border: 1px solid #2a2a5a; }
+        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: var(--gradient-1); border-radius: 50%; font-size: 20px; font-weight: 800; margin-bottom: 16px; }
         .step h3 { margin-bottom: 8px; }
         .step p { color: var(--text-secondary); font-size: 13px; line-height: 1.6; }
-
-        /* CTA Section */
-        .cta-section {
-            position: relative; z-index: 1;
-            text-align: center;
-            padding: 80px 20px;
-            background: radial-gradient(ellipse at center, rgba(108,92,231,0.2), transparent 60%);
-        }
 
         /* Footer */
         .footer { position: relative; z-index: 1; background: #050510; border-top: 1px solid #2a2a5a; padding: 40px 20px; text-align: center; }
@@ -154,7 +98,7 @@
 </head>
 <body>
 
-    <!-- ═══ PARTICLE CANVAS ═══ -->
+    <!-- Particle Canvas -->
     <canvas id="particles-canvas"></canvas>
 
     <!-- Navbar -->
@@ -177,42 +121,42 @@
 
     <!-- Hero -->
     <section class="hero">
-        <h1 class="reveal">200+ Professional Tools for<br><span class="highlight">Adobe Animate CC</span></h1>
-        <p class="reveal">Streamline your rig, automate your timeline, and animate faster. Built by animators, for animators.</p>
-        <a href="purchase.html" class="hero-cta reveal">🛒 Get Abmation Tools — ₹1,999/year</a>
+        <h1>200+ Professional Tools for<br><span class="highlight">Adobe Animate CC</span></h1>
+        <p>Streamline your rig, automate your timeline, and animate faster. Built by animators, for animators.</p>
+        <a href="purchase.html" class="hero-cta">🛒 Get Abmation Tools — ₹1,999/year</a>
     </section>
 
     <!-- Features -->
     <section class="section" id="features">
-        <h2 class="section-title reveal">Why Abmation Tools?</h2>
-        <p class="section-sub reveal">Everything you need to supercharge your 2D animation workflow</p>
+        <h2 class="section-title">Why Abmation Tools?</h2>
+        <p class="section-sub">Everything you need to supercharge your 2D animation workflow</p>
         <div class="features-grid">
-            <div class="feature-card reveal">
+            <div class="feature-card">
                 <div class="feature-icon">⚡</div>
                 <h3>200+ Pro Scripts</h3>
                 <p>Massive collection of JSFL scripts covering rigging, timeline, symbols, layers, and more.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="feature-card">
                 <div class="feature-icon">🎨</div>
                 <h3>CEP Panel</h3>
                 <p>Beautiful one-click panel integrated directly into Adobe Animate CC for instant access.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="feature-card">
                 <div class="feature-icon">⌨️</div>
                 <h3>Custom Shortcuts</h3>
                 <p>Assign keyboard shortcuts to any tool for lightning-fast workflow.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="feature-card">
                 <div class="feature-icon">🔒</div>
                 <h3>Offline Support</h3>
                 <p>Works offline with grace period. No constant internet required.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="feature-card">
                 <div class="feature-icon">🖥️</div>
                 <h3>Animate CC 2022–2024</h3>
                 <p>Compatible with Adobe Animate CC 2022, 2023, and 2024 versions.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="feature-card">
                 <div class="feature-icon">📧</div>
                 <h3>Email Support</h3>
                 <p>Get help whenever you need it. Dedicated support within 24-48 hours.</p>
@@ -221,9 +165,9 @@
     </section>
 
     <!-- About -->
-    <section class="section about-section" id="about">
+    <section class="section" id="about" style="position:relative;z-index:1;background: rgba(108,92,231,0.05); border-radius: 24px;">
         <div class="about-content">
-            <div class="about-text reveal">
+            <div class="about-text">
                 <h2>Speed Matters in Animation.<br>Built by Animators, for Animators.</h2>
                 <p>In professional 2D animation, speed is everything. Adobe Animate CC is a powerful tool — but it's missing dozens of essential features that animators need daily. Abmation Tools fills that gap with 200+ purpose-built scripts that automate repetitive tasks and dramatically speed up your workflow.</p>
                 <p>From faster rigging to timeline management, symbol manipulation to layer organization — these are the tools Adobe should have built. We built them so you can focus on what matters — creating amazing animation, faster.</p>
@@ -242,33 +186,33 @@
                     </div>
                 </div>
             </div>
-            <div class="reveal" style="text-align:center;">
-                <img src="abmation_logo.png" alt="Abmation Tools" style="width:300px;height:auto;filter:drop-shadow(0 8px 32px rgba(108,92,231,0.5));">
+            <div style="text-align:center;">
+                <img src="abmation_logo.png" alt="Abmation Tools" style="width:300px;height:auto;filter:drop-shadow(0 8px 24px rgba(108,92,231,0.4));">
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
     <section class="section" id="how-it-works">
-        <h2 class="section-title reveal">How It Works</h2>
-        <p class="section-sub reveal">Get started in minutes with our simple setup process</p>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Get started in minutes with our simple setup process</p>
         <div class="steps">
-            <div class="step reveal">
+            <div class="step">
                 <div class="step-number">1</div>
                 <h3>Download</h3>
                 <p>Download the Abmation Tools installer from our website. It's free to download and works with Animate CC 2022 and later.</p>
             </div>
-            <div class="step reveal">
+            <div class="step">
                 <div class="step-number">2</div>
                 <h3>Install</h3>
                 <p>Run the installer → Enter your purchased license key → Click Install. All tools are auto-deployed to your system.</p>
             </div>
-            <div class="step reveal">
+            <div class="step">
                 <div class="step-number">3</div>
                 <h3>Open Panel</h3>
                 <p>Open Adobe Animate CC → Go to Window → Extensions → Abmation Tools to launch the panel.</p>
             </div>
-            <div class="step reveal">
+            <div class="step">
                 <div class="step-number">4</div>
                 <h3>Animate!</h3>
                 <p>Access 200+ tools from the CEP panel or Commands menu. Keyboard shortcuts supported.</p>
@@ -277,10 +221,10 @@
     </section>
 
     <!-- CTA -->
-    <section class="cta-section">
-        <h2 class="reveal" style="font-size:32px;font-weight:800;margin-bottom:16px;">Ready to Animate Faster?</h2>
-        <p class="reveal" style="color:var(--text-secondary);margin-bottom:32px;">Join professional animators using Abmation Tools</p>
-        <a href="purchase.html" class="hero-cta reveal">🛒 Get Started — ₹1,999/year</a>
+    <section style="position:relative;z-index:1;text-align:center;padding:80px 20px;background:radial-gradient(ellipse at center, rgba(108,92,231,0.15), transparent 60%);">
+        <h2 style="font-size:32px;font-weight:800;margin-bottom:16px;">Ready to Animate Faster?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:32px;">Join professional animators using Abmation Tools</p>
+        <a href="purchase.html" class="hero-cta">🛒 Get Started — ₹1,999/year</a>
     </section>
 
     <!-- Footer -->
@@ -296,9 +240,8 @@
         <p class="footer-copy">© 2026 Abmation Tools. All rights reserved.</p>
     </footer>
 
-    <!-- ═══ PARTICLES + SCROLL REVEAL SCRIPT ═══ -->
+    <!-- Connected Dots Particle Script -->
     <script>
-    // ── Particle System ──
     (function() {
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
@@ -333,7 +276,6 @@
                 this.y += this.vy;
                 if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-                // Mouse interaction
                 if (mouse.x !== null) {
                     const dx = mouse.x - this.x;
                     const dy = mouse.y - this.y;
@@ -382,22 +324,6 @@
             requestAnimationFrame(animate);
         }
         animate();
-    })();
-
-    // ── Scroll Reveal ──
-    (function() {
-        const reveals = document.querySelectorAll('.reveal');
-        function checkReveal() {
-            reveals.forEach(el => {
-                const top = el.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if (top < windowHeight - 80) {
-                    el.classList.add('active');
-                }
-            });
-        }
-        window.addEventListener('scroll', checkReveal);
-        checkReveal(); // Initial check
     })();
     </script>
 
