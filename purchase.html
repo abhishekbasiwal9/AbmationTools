@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buy Abmation Tools — 1 Year License</title>
     <meta name="description"
-        content="Purchase Abmation Tools for Adobe Animate CC. Professional animation tools at ₹1999/year.">
+        content="Purchase Abmation Tools for Adobe Animate CC. Professional animation tools at ₹1,249/year.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -459,7 +459,7 @@
         <div class="card" id="purchaseCard">
             <!-- Pricing -->
             <div class="pricing-badge">
-                <span class="price">₹1,999</span>
+                <span class="price">₹1,249</span>
                 <div class="price-details">
                     <div class="price-period">per year</div>
                     <div class="price-features">All tools • All updates • 365-day access</div>
@@ -493,7 +493,7 @@
 
                 <button type="submit" class="buy-btn" id="buyBtn">
                     <span class="shimmer"></span>
-                    <span id="buyBtnText">🛒 Buy Now — ₹1,999</span>
+                    <span id="buyBtnText">🛒 Buy Now — ₹1,249</span>
                 </button>
             </form>
 
@@ -622,13 +622,13 @@
                         } catch (verifyErr) {
                             showError("Payment received but verification failed. Please contact support.");
                             buyBtn.disabled = false;
-                            buyBtnText.textContent = "🛒 Buy Now — ₹1,999";
+                            buyBtnText.textContent = "🛒 Buy Now — ₹1,249";
                         }
                     },
                     modal: {
                         ondismiss: function () {
                             buyBtn.disabled = false;
-                            buyBtnText.textContent = "🛒 Buy Now — ₹1,999";
+                            buyBtnText.textContent = "🛒 Buy Now — ₹1,249";
                         },
                     },
                 };
@@ -637,18 +637,18 @@
                 rzp.on("payment.failed", function (response) {
                     showError("Payment failed: " + response.error.description);
                     buyBtn.disabled = false;
-                    buyBtnText.textContent = "🛒 Buy Now — ₹1,999";
+                    buyBtnText.textContent = "🛒 Buy Now — ₹1,249";
                 });
                 rzp.open();
 
                 // Reset button after Razorpay opens
-                buyBtnText.textContent = "🛒 Buy Now — ₹1,999";
+                buyBtnText.textContent = "🛒 Buy Now — ₹1,249";
                 buyBtn.disabled = false;
 
             } catch (err) {
                 showError(err.message || "Something went wrong. Please try again.");
                 buyBtn.disabled = false;
-                buyBtnText.textContent = "🛒 Buy Now — ₹1,999";
+                buyBtnText.textContent = "🛒 Buy Now — ₹1,249";
             }
         }
 
